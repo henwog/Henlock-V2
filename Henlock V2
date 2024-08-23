@@ -7,10 +7,6 @@ local Section = Window:Section('Press Me!') -- :Section(Title)
 -- Label
 Section:Label('Made by Henri') -- :Label(Text)
 
--- Button
-Section:Button('FPS Unlocker', function() -- :Button(Title, callback)
-    print('Clicked Button')
-end)
 
 -- Toggle
 Section:Toggle('Henlock', {flag = 'Toggle'},function(value) -- :Toggle(Title, callback)
