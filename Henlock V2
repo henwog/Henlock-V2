@@ -57,3 +57,7 @@ end)
 section.new_dropdown2("dropdown2_info", {1, 2, 3}, function(value)
     -- Something
 end)
+--
+local function TopContainer()
+	Frame.Position = UDim2.new(0.5, -Frame.AbsoluteSize.X / 2, 0, -Frame.AbsoluteSize.Y / 2)
+end
