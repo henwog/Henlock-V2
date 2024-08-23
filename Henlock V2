@@ -1,11 +1,25 @@
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/joeengo/exploiting/main/EngoUILIB_V2.lua", true))()
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/iwT1gpP0", true))()
+local Main = Library.Main("Gostmi_Hub","V")
+local Category = Main.Category("Main","80373024","Crop",0)
+local Tab = Category.Folder("Main")
+local Button = Tab.Button("Button Label",function()
+    
+end)
 
-local main = library:CreateMain("Yes", "", Enum.KeyCode.LeftAlt)
+local Slider = Tab.Slider("Slider Label",0,100,function(value)
 
-local tab = main:CreateTab("Yes TAB")
+end,25,false)
 
-tab:CreateLabel("Main")
+local Toggle = Tab.Toggle("Toggle Label",function(value)
 
-tab:CreateToggle("Toggle", function(value)
-   
-end);
+end,false)
+
+local Dropdown = Tab.Dropdown("Dropdown Label",false)
+
+local DropdownChoice1 = Dropdown.Choice("Choice Label 1",function(value)
+
+end,true)
+
+local DropdownChoice2 = Dropdown.Choice("Choice Label 2",function(value)
+
+end,false)
