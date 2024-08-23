@@ -1,63 +1,90 @@
-getgenv().color_schemes = {
-	white_orange = { -- Original
-		header_color = Color3.fromRGB(45, 49, 66),
-		mid_color = Color3.fromRGB(191, 192, 192),
-		hover_color = Color3.fromRGB(45, 49, 66),
-		standard_color = Color3.fromRGB(79, 93, 117),
-		enabled_color = Color3.fromRGB(239, 131, 84),
-		scroll_bar_color = Color3.fromRGB(0, 0, 0),
-		text_labels_color = Color3.fromRGB(255, 255, 255),
-		background_color = Color3.fromRGB(255, 255, 255)
-	},
-	
-	custom = { -- Dark theme pog?
-		header_color = Color3.fromRGB(40, 40, 40),
-		mid_color = Color3.fromRGB(50, 50, 50),
-		hover_color = Color3.fromRGB(40, 40, 40),
-		standard_color = Color3.fromRGB(70, 70, 70),
-		enabled_color = Color3.fromRGB(239, 131, 84),
-		scroll_bar_color = Color3.fromRGB(255, 255, 255),
-		text_labels_color = Color3.fromRGB(255, 255, 255),
-		background_color = Color3.fromRGB(35, 35, 35)
-	}
-}
+local SolarisLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stebulous/solaris-ui-lib/main/source.lua"))()
 
-getgenv().color_scheme = getgenv().color_schemes.custom
+--[[SolarisLib:New({
+  Name - Title of the UI <string>
+  FolderToSave - Name of the folder where the UI files will be stored <string>
+})]]
+local win = SolarisLib:New({
+  Name = "SolarisLib",
+  FolderToSave = "SolarisLibStuff"
+})
 
-local window = loadstring(game:HttpGet("https://raw.githubusercontent.com/deadmopose/Small-ui-library/main/Script.lua"))("example_window_name")
+--win:Tab(title <string>)
+local tab = win:Tab("Tab 1")
 
-local tab = window:new_tab("tab_name")
+--tab:Section(title <string>)
+local sec = tab:Section("Elements")
 
-local section = tab.new_section("section_name")
-
-section.new_button("button_info", function()
-    -- Something
+--sec:Button(title <string>, callback <function>)
+sec:Button("Button", function()
+  SolarisLib:Notification("Test", "This is a notification test.")
 end)
 
-section.new_toggle("toggle_info", function(state)
-    -- Something
+--sec:Toggle(title <string>,default <boolean>, flag <string>, callback <function>)
+local toggle = sec:Toggle("Toggle", false,"Toggle", function(t)
+  print(t)
 end)
 
-section.new_text_box("text_box_info", function(value)
-    -- Something
+--[[
+toggle:Set(state <boolean>)
+]]
+
+--sec:Slider(title <string>,default <number>,max <number>,minimum <number>,increment <number>, flag <string>, callback <function>)
+local slider = sec:Slider("Slider", 0,25,0,2.5,"Slider", function(t)
+  print(t)
 end)
 
-section.new_key_bind("key_bind_info" , "RightControl", function(value)
-    -- Something
+--[[
+slider:Set(state <number>)
+]]
+
+--sec:Dropdown(title <string>,options <table>,default <string>, flag <string>, callback <function>)
+local dropdown = sec:Dropdown("Dropdown", {"a","b","c","d","e"},"","Dropdown", function(t)
+  print(t)
 end)
 
-section.new_slider("slider_info", 0, 100, function(value)
-    -- Something
+--[[
+Dropdown:Refresh(options <table>, deletecurrent <boolean>)
+Dropdown:Set(option <string>)
+]]
+
+--sec:MultiDropdown(title <string>,options <table>,default <table>, flag <string>, callback <function>)
+local multidropdown =sec:MultiDropdown("Multi Dropdown", {"a","b","c","d","e"},{"b", "c"},"Dropdown", function(t)
+  print(table.concat(t, ", "))
 end)
 
-section.new_dropdown("dropdown_info", {1, 2, 3}, function(value)
-    -- Something
+--[[
+Dropdown:Refresh(options <table>, deletecurrent <boolean>)
+Dropdown:Set(option <table>)
+]]
+
+--sec:Colorpicker(title <string>, default <color3>, flag <string>, callback <function>)
+sec:Colorpicker("Colorpicker", Color3.fromRGB(255,255,255),"Colorpicker", function(t)
+  print(t)
 end)
 
-section.new_dropdown2("dropdown2_info", {1, 2, 3}, function(value)
-    -- Something
+--sec:Textbox(title <string> ,disappear <boolean>, callback <function>)
+sec:Textbox("Textbox", true, function(t)
+  print(t)
 end)
---
-local function TopContainer()
-	Frame.Position = UDim2.new(0.5, -Frame.AbsoluteSize.X / 2, 0, -Frame.AbsoluteSize.Y / 2)
-end
+
+--sec:Bind(title <string>, default <keycode>, hold <boolean>, flag <string>, callback <function>)
+sec:Bind("Hold Bind", Enum.KeyCode.E, true, "BindHold", function(t)
+  print(t)
+end)
+
+sec:Bind("Normal Bind", Enum.KeyCode.F, false, "BindNormal", function()
+  print("Bind pressed")
+end)
+
+--[[
+bind:Set(state <keycode>)
+]]
+
+--sec:Label(text <string>)
+local label = sec:Label("Label")
+
+--[[
+label:Set(text <string>)
+]]
+local tab2 = win:Tab("Tab 2")
