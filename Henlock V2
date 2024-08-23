@@ -1,28 +1,26 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostDuckyy/Ui-Librarys/main/Gerad's/source.lua"))()
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/UI-Interface/CustomFIeld/main/RayField.lua'))()
 
-local Window = Library:CreateWindow('Henlock V2') -- :CreateWindow(Title)
+local window = Rayfield:CreateWindow({
+    Name = "Henlock V2",
+    LoadingTitle = "Henlock V2 is loading for you..",
+    LoadingSubtitle = "By Hen <3",
+    ConfigurationSaving = {
+        Enabled = true,
+        FileName = "Henlock V2",
+},
+KeySystem = true
+KeySettings = {
+    Title = "Henlock V2",
+    Subtitle = "Key System",
+    Note = "Status: Working",
+    Key = "henwog"
+}
+})
+...
 
-local Section = Window:Section('Press Me!') -- :Section(Title)
-
--- Label
-Section:Label('Made by Henri') -- :Label(Text)
 
 
--- Toggle
-Section:Toggle('Aimlock', {flag = 'Toggle'},function(value) -- :Toggle(Title, callback)
-    if value then -- if true then
-        print('True') -- print true
-    else -- else false
-        print('False') -- print false
-    end
-end)
 
--- Print status
-Section:Button('Status: Working', function()
-    print('Toggle - ',Library.flags.Toggle)
-    print('Slider - ',Library.flags.Slider)
-    print('TxtBox - ',Library.flags.Box)
-    print('Dropdown - ',Library.flags.DROP)
-    print('Bind - ',Library.flags.BIND)
-    print('ColorPicker - ',Library.flags.PICKER)
-end)
+
+
+Rayfield:LoadConfiguration()
