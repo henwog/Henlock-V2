@@ -8,12 +8,12 @@ local Section = Window:Section('Press Me!') -- :Section(Title)
 Section:Label('Made by Henri') -- :Label(Text)
 
 -- Button
-Section:Button('Button', function() -- :Button(Title, callback)
+Section:Button('FPS Unlocker', function() -- :Button(Title, callback)
     print('Clicked Button')
 end)
 
 -- Toggle
-Section:Toggle('Toggles', {flag = 'Toggle'},function(value) -- :Toggle(Title, callback)
+Section:Toggle('Henlock', {flag = 'Toggle'},function(value) -- :Toggle(Title, callback)
     if value then -- if true then
         print('True') -- print true
     else -- else false
@@ -22,7 +22,7 @@ Section:Toggle('Toggles', {flag = 'Toggle'},function(value) -- :Toggle(Title, ca
 end)
 
 -- Print status
-Section:Button('Status', function()
+Section:Button('Status: Working', function()
     print('Toggle - ',Library.flags.Toggle)
     print('Slider - ',Library.flags.Slider)
     print('TxtBox - ',Library.flags.Box)
