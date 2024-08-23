@@ -1,90 +1,57 @@
-local SolarisLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stebulous/solaris-ui-lib/main/source.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostDuckyy/Ui-Librarys/main/Gerad's/source.lua"))()
 
---[[SolarisLib:New({
-  Name - Title of the UI <string>
-  FolderToSave - Name of the folder where the UI files will be stored <string>
-})]]
-local win = SolarisLib:New({
-  Name = "SolarisLib",
-  FolderToSave = "SolarisLibStuff"
-})
+local Window = Library:CreateWindow('Gerad') -- :CreateWindow(Title)
 
---win:Tab(title <string>)
-local tab = win:Tab("Tab 1")
+local Section = Window:Section('Am Section') -- :Section(Title)
 
---tab:Section(title <string>)
-local sec = tab:Section("Elements")
+-- Label
+Section:Label('Yeah just label') -- :Label(Text)
 
---sec:Button(title <string>, callback <function>)
-sec:Button("Button", function()
-  SolarisLib:Notification("Test", "This is a notification test.")
+-- Button
+Section:Button('Button', function() -- :Button(Title, callback)
+    print('Clicked Button')
 end)
 
---sec:Toggle(title <string>,default <boolean>, flag <string>, callback <function>)
-local toggle = sec:Toggle("Toggle", false,"Toggle", function(t)
-  print(t)
+-- Toggle
+Section:Toggle('Toggles', {flag = 'Toggle'},function(value) -- :Toggle(Title, callback)
+    if value then -- if true then
+        print('True') -- print true
+    else -- else false
+        print('False') -- print false
+    end
 end)
 
---[[
-toggle:Set(state <boolean>)
-]]
-
---sec:Slider(title <string>,default <number>,max <number>,minimum <number>,increment <number>, flag <string>, callback <function>)
-local slider = sec:Slider("Slider", 0,25,0,2.5,"Slider", function(t)
-  print(t)
+-- Slider?
+Section:Slider('Slider', {flag = 'Slider'; Min = 100; Max = 0; Default = 0 ; Precise = false}, function(val) -- :Slider(Title, {info; Min; Max; Default; Precise = true/false}, callback)
+    print(val)
 end)
 
---[[
-slider:Set(state <number>)
-]]
-
---sec:Dropdown(title <string>,options <table>,default <string>, flag <string>, callback <function>)
-local dropdown = sec:Dropdown("Dropdown", {"a","b","c","d","e"},"","Dropdown", function(t)
-  print(t)
+-- Textbox
+Section:Box('Textbox', {flag = 'Box'}, function(txt) -- :Box(Title, {info}, callback)
+    print(tostring(txt))
 end)
 
---[[
-Dropdown:Refresh(options <table>, deletecurrent <boolean>)
-Dropdown:Set(option <string>)
-]]
-
---sec:MultiDropdown(title <string>,options <table>,default <table>, flag <string>, callback <function>)
-local multidropdown =sec:MultiDropdown("Multi Dropdown", {"a","b","c","d","e"},{"b", "c"},"Dropdown", function(t)
-  print(table.concat(t, ", "))
+-- Dropdown
+Section:Dropdown('Dropdown', {flag = 'DROP', list = {'1', '2', '3', '4', '5'}, Type = 'Toggle'}, function(options) -- :Dropdown(Title, (info, list, Type = 'Toggle'), callback)
+    print(options)
 end)
 
---[[
-Dropdown:Refresh(options <table>, deletecurrent <boolean>)
-Dropdown:Set(option <table>)
-]]
-
---sec:Colorpicker(title <string>, default <color3>, flag <string>, callback <function>)
-sec:Colorpicker("Colorpicker", Color3.fromRGB(255,255,255),"Colorpicker", function(t)
-  print(t)
+-- Bind
+Section:Bind('Bind', {flag = 'BIND'}, function() -- :Bind(Title, {info}, callback)
+    print('Tapped Bind')
 end)
 
---sec:Textbox(title <string> ,disappear <boolean>, callback <function>)
-sec:Textbox("Textbox", true, function(t)
-  print(t)
+-- Colorpicker
+Section:ColorPicker('Color', {flag = 'PICKER'}, function(clr) -- :ColorPicker(Title, {info}, callback)
+    print(clr)
 end)
 
---sec:Bind(title <string>, default <keycode>, hold <boolean>, flag <string>, callback <function>)
-sec:Bind("Hold Bind", Enum.KeyCode.E, true, "BindHold", function(t)
-  print(t)
+-- Print status
+Section:Button('Status', function()
+    print('Toggle - ',Library.flags.Toggle)
+    print('Slider - ',Library.flags.Slider)
+    print('TxtBox - ',Library.flags.Box)
+    print('Dropdown - ',Library.flags.DROP)
+    print('Bind - ',Library.flags.BIND)
+    print('ColorPicker - ',Library.flags.PICKER)
 end)
-
-sec:Bind("Normal Bind", Enum.KeyCode.F, false, "BindNormal", function()
-  print("Bind pressed")
-end)
-
---[[
-bind:Set(state <keycode>)
-]]
-
---sec:Label(text <string>)
-local label = sec:Label("Label")
-
---[[
-label:Set(text <string>)
-]]
-local tab2 = win:Tab("Tab 2")
