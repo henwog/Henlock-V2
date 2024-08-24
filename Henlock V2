@@ -3,11 +3,11 @@ local RunService = game:GetService("RunService")
 local LocalPlayer = Players.LocalPlayer
 local Mouse = game.Players.LocalPlayer:GetMouse()
 local CamlockState = false
-local Prediction = 0.1768521
+local Prediction = 0.0768521
 local HorizontalPrediction = 0.0094846
 local VerticalPrediction = 0.00395835
-local XPrediction = 20
-local YPrediction = 20
+local XPrediction = 0
+local YPrediction = 0
 
 local Players = game:GetService("Players")	
 local LP = Players.LocalPlayer	
