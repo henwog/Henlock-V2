@@ -8,6 +8,7 @@ local HorizontalPrediction = 0.0094846
 local VerticalPrediction = 0.00395835
 local XPrediction = 0
 local YPrediction = 0
+local Smoothness = 15
 
 local Players = game:GetService("Players")	
 local LP = Players.LocalPlayer	
