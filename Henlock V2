@@ -7,12 +7,7 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 --
-OrionLib:MakeNotification({
-	Name = "Henlock V2!",
-	Content = "Notification: Successfully injected Henlock V2 hub.",
-	Image = "rbxassetid://4483345998",
-	Time = 5
-})
+Tab:AddLabel("Henlock V2.")
 --
 Tab:AddToggle({
 	Name = "Henlock!",
@@ -20,16 +15,5 @@ Tab:AddToggle({
 	Callback = function(Value)
 		print(Value)
 	end    
-})
---
-Tab:AddLabel("Henlock V2.")
---
-Tab:AddTextbox({
-	Name = "Thank you for using this.",
-	Default = "default box input",
-	TextDisappear = true,
-	Callback = function(Value)
-		print(Value)
-	end	  
 })
 --
