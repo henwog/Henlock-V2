@@ -15,6 +15,7 @@ Tab:AddToggle({
 	Callback = function(Value)
 		print(Value)
         loadstring(game:HttpGet(('https://raw.githubusercontent.com/henwog/Henlock/main/Henlock')))()
+    end
 })
 --
 local Tab = Window:MakeTab({
