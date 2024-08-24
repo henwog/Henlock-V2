@@ -6,8 +6,11 @@ local CamlockState = false
 local Prediction = 2.000000
 local HorizontalPrediction = 7.220000
 local VerticalPrediction = 6.612000
-local XPrediction = 20
-local YPrediction = 20
+local XPrediction = 0
+local YPrediction = 0
+local Smoothness = 5
+local CrosshairSize = 2.000000
+local verticalSmoother = 1
 
 local Players = game:GetService("Players")	
 local LP = Players.LocalPlayer	
