@@ -1,26 +1,2 @@
-local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/UI-Interface/CustomFIeld/main/RayField.lua'))()
-
-local window = Rayfield:CreateWindow({
-    Name = "Henlock V2",
-    LoadingTitle = "Henlock V2 is loading for you..",
-    LoadingSubtitle = "By Hen <3",
-    ConfigurationSaving = {
-        Enabled = true,
-        FileName = "Henlock V2",
-},
-KeySystem = true
-KeySettings = {
-    Title = "Henlock V2",
-    Subtitle = "Key System",
-    Note = "Status: Working",
-    Key = "henwog"
-}
-})
-...
-
-
-
-
-
-
-Rayfield:LoadConfiguration()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Advanced Key System", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
