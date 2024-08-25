@@ -13,7 +13,7 @@ getgenv().Camlock_Settings = {
         Credits = "space_0999",
         DiscordServer = "discord.gg/SKhamGzTdn"
     }
-
+--
 local Henlock = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -88,5 +88,3 @@ TextButton.MouseButton1Click:Connect(
 local function HideLoadingScreen()
     LoadingScreen:Destroy()
 end
---
-loadstring(game:HttpGet("https://raw.githubusercontent.com/DHBCommunity/DHBOfficialScript/main/macromobbyballigusapo"))()
